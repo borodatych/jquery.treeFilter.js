@@ -4,6 +4,7 @@ Tree Filter
 В коде есть коментарии  
 Пока ориентируемся на них
 
+Пример использования:  
 ```
 $("#tz-tree").treeFilter({
   menuParentRoot: '#tz-tree',
