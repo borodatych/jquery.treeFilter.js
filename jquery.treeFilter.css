@@ -1,0 +1,76 @@
+.tree, .tree ul {
+    margin:0;
+    padding:0;
+    list-style:none
+}
+.tree ul {
+    margin-left:1rem;
+    position:relative
+}
+.tree ul ul {
+    margin-left:.5rem
+}
+.tree ul:before {
+    content:"";
+    display:block;
+    width:0;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    border-left:1px solid
+}
+.tree li {
+    margin: 0 0 .2rem 0;
+    padding: 0 1rem;
+    line-height: 1.3rem;
+    color: var(--primary);
+    position: relative;
+}
+#tz_menu .tree li{
+    color: var(--danger);
+}
+.tree ul li:before {
+    content:"";
+    display:block;
+    width:10px;
+    height:0;
+    border-top:1px solid;
+    margin-top:-1px;
+    position:absolute;
+    top:.5rem;
+    left:0
+}
+.tree ul li:last-child:before {
+    background:#fff;
+    height:auto;
+    top:1rem;
+    bottom:0
+}
+.indicator {
+    margin-right:5px;
+}
+.tree li a {
+    text-decoration: none;
+    color: var(--dark) !important;
+    cursor: pointer;
+}
+#tz_menu .tree li a{
+    color: var(--dark);
+}
+.tree li button,
+.tree li button:active,
+.tree li button:focus {
+    text-decoration: none;
+    color:var(--primary);
+    border:none;
+    background:transparent;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+#tz_menu .tree li button,
+#tz_menu .tree li button:active,
+#tz_menu .tree li button:focus {
+    color:var(--danger);
+}
