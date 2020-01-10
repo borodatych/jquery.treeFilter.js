@@ -4,29 +4,30 @@ $.expr[':'].containsText = function(obj, index, meta, stack){
 $.fn.treeFilter = function(options) {
 	let el = this;
 	let defaults = {
-		menuParentRoot: '.tf-menu',			/// Общий родитель у заголовка и элементами меню
-		menuParentShow: 'tz-show',			///
-		menuParentHide: 'tz-hide',			///
-											///
+		menuParentRoot: '.tf-menu',		/// Общий родитель у заголовка и элементами меню
+		menuParentShow: 'tz-show',		///
+		menuParentHide: 'tz-hide',		///
+							///
 		menuTitleRoot: '.tf-submenu',		///
 		menuTitleText: '.tf-submenu-text',	///
-		menuTitleOpen: 'tf-open',			///
-		menuTitleClose: 'tf-close',			///
-											///
-		menuItemsRoot: '.tf-items',			/// Общий контейнер для всех ссылок
-		menuItemsShow: 'tf-show',			///
-		menuItemsHide: 'tf-hide',			///
-											///
-		menuItemRoot: '.tf-item',			///
+		menuTitleOpen: 'tf-open',		///
+		menuTitleClose: 'tf-close',		///
+							///
+		menuItemsRoot: '.tf-items',		/// Общий контейнер для всех ссылок
+		menuItemsShow: 'tf-show',		///
+		menuItemsHide: 'tf-hide',		///
+							///
+		menuItemRoot: '.tf-item',		///
 		menuItemText: '.tf-item-text',		///
 		menuItemTags: '.tf-item-tags',		/// Пока тэги пососедству с самими линками, пака небыло необходиости по другому
-		menuItemShow: 'tf-show',			///
-		menuItemHide: 'tf-hide',			///
-											///
-		resultClass: 'tf-result',			/// От найденных пунктов меню до общего родителя проставляется сквозной класс
-											///
-		searcher : null,					/// Строка поиска, сам input
-		searchWithMenuText: false			/// Искать в заголовкам \ По умолчанию ищем только в пунктах меню \ До конца еще не решил, что делать при поиске по меню: показывать всё подменю или что-то похитрее
+		menuItemShow: 'tf-show',		///
+		menuItemHide: 'tf-hide',		///
+							///
+		resultClass: 'tf-result',		/// От найденных пунктов меню до общего родителя проставляется сквозной класс
+							///
+		searcher : null,			/// Строка поиска, сам input
+		reset : null,				/// Кнопка сброса набранного
+		searchWithMenuText: false		/// Искать в заголовкам \ По умолчанию ищем только в пунктах меню \ До конца еще не решил, что делать при поиске по меню: показывать всё подменю или что-то похитрее
 	};
 
 	/// Public Variables
@@ -86,6 +87,9 @@ $.fn.treeFilter = function(options) {
 			plugin.el.find(menuTitleRoot).removeClass(menuTitleOpen).addClass(menuTitleClose);
 		};
 
+		$(plugin.settings.reset).click(function(){
+			$(plugin.settings.searcher).val('').trigger('keyup');
+		});
 		$(plugin.settings.searcher).keyup(function(){
 			let search = $(this).val();
 			clearTags();
